@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+  width: 100%;
+}
+
+.primary-border{
+  @apply border-[#00b98e4d] border rounded-full border-dashed
+}
+
+.swiper-button-prev i,
+.swiper-button-next i {
+  font-size: 16px; /* Adjust this value to control the icon size */
+}
+
+.swiper-button-next:after, .swiper-button-prev:after{
+  font-size: 18px !important;
+  color: white !important;
+}
+
+.swiper-button-prev {
+    background-color:#00B98E ;
+  width: 50px !important; 
+  left: -24px !important;
+  height: 50px !important; 
+  border-radius: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-next{
+    background-color:#00B98E ;
+  width: 50px !important; 
+  left: -24px !important;
+  top: 59% !important;
+  height: 50px !important; 
+  border-radius: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) { 
+  .swiper-button-prev {
+    width: 50px !important; 
+    height: 50px !important;
+    left: 5px !important; 
+  }
+
+  .swiper-button-next {
+    width: 50px !important; 
+    height: 50px !important;
+    left: 5px !important; 
+    top: 63% !important; 
+  }
+}
