@@ -2,10 +2,17 @@ import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LiaAngleDownSolid } from "react-icons/lia";
 import { desktopLinks, mobileLinks } from "../consts";
+import { FaAngleDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [openedSubMenuIndex, setOpenedSubMenuIndex] = useState(null);
   const [isScroll, setIsScroll] = useState(false)
+
+
+  const toggleSubMenu = (index) => {
+    setOpenedSubMenuIndex(openedSubMenuIndex === index ? null : index);
+  };
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen((prev) => !prev);
@@ -19,18 +26,18 @@ const Navbar = () => {
     setIsScroll(false)
   }
 
-  useEffect(()=>{
-    window.addEventListener("scroll",handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
     // clear event
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  },[])
+  }, [])
 
 
   return (
-    <nav className={`${isScroll ? "fixed top-0":"absolute"} mx-auto w-full z-50`}>
-      <div className={`container flex justify-between items-center ${isScroll ? "lg:mt-0 lg:w-full":"lg:mt-11 lg:w-[93%]"} h-[75px] shadow-custom bg-white transition-transform transform`}>
+    <nav className={`${isScroll ? "fixed top-0" : "absolute"} mx-auto w-full z-50`}>
+      <div className={`container flex justify-between items-center ${isScroll ? "lg:mt-0 lg:w-full" : "lg:mt-11 lg:w-[93%]"} h-[75px] shadow-custom bg-white transition-transform transform`}>
         {/* Logo */}
         <div className="flex items-center">
           <div className="border mr-2 p-2 border-dashed border-primary rounded-full">
@@ -78,31 +85,33 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Links */}
-      <ul
-        id="mobile-nav-links"
-        className={`lg:hidden flex-col items-start bg-white font-hebbo shadow-md py-4 px-6 w-full ${isMobileNavOpen ? "flex" : "hidden"
-          }`}
-      >
-        {mobileLinks.map((link, index) => (
-          <li key={index} className="py-2 cursor-pointer w-full relative group">
-            <div className="flex items-center w-full">
-              <span>{link.name}</span>
-              {link.subMenu && (
-                <i className="fa-solid fa-angle-down ml-[5px] transition-transform transform"></i> // Dropdown icon for mobile
-              )}
-            </div>
+      {isMobileNavOpen && mobileLinks.map((link, index) => (
+        <li key={index} className="lg:hidden bg-white text-accent py-[10px] text-[15px] font-medium px-6 cursor-pointer w-full relative group font-hebbo list-none">
+          <div className="flex items-center w-full" onClick={() => toggleSubMenu(index)}>
+            <span>{link.name}</span>
             {link.subMenu && (
-              <ul className="hidden border border-[#00000026] py-2 mt-2 space-y-1 group-hover:block">
-                {link.subMenu.map((subLink, subIndex) => (
-                  <li key={subIndex} className="py-1 pl-4 cursor-pointer hover:bg-slate-100">
-                    <a href={subLink.path}>{subLink.name}</a>
-                  </li>
-                ))}
-              </ul>
+              <span
+                className={`ml-[5px] transition-transform transform ${openedSubMenuIndex === index ? "rotate-180" : ""
+                  }`}
+              >
+                <FaAngleDown />
+              </span>
             )}
-          </li>
-        ))}
-      </ul>
+          </div>
+          {link.subMenu && (
+            <ul
+              className={`border border-[#00000026] py-2 mt-2 space-y-1 ${openedSubMenuIndex === index ? "block" : "hidden"
+                }`}
+            >
+              {link.subMenu.map((subLink, subIndex) => (
+                <li key={subIndex} className="py-1 pl-4 cursor-pointer hover:bg-slate-100 list-none">
+                  <a href={subLink.path}>{subLink.name}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
     </nav>
   );
 };

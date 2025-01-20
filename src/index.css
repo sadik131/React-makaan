@@ -60,3 +60,36 @@
     top: 63% !important; 
   }
 }
+
+.swiper-button-next-test,
+.swiper-button-prev-test {
+  width: 40px;
+  height: 40px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.swiper-button-next-test {
+  right: 10px;
+}
+
+.swiper-button-prev-test {
+  left: 10px;
+}
+
+.testimonials-swiper {
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}

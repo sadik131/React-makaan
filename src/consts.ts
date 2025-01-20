@@ -88,7 +88,7 @@ export const propertys = [
   {
     img: "img/property-2.jpg",
     price: 23456,
-    title: "Luxury Modern Apartment",
+    title: "Golden Urban House For Sell",
     location: "456 Avenue, San Francisco, USA",
     facility: {
       size: 85,
@@ -99,7 +99,7 @@ export const propertys = [
   {
     img: "img/property-3.jpg",
     price: 34567,
-    title: "Cozy Villa in the Countryside",
+    title: "Golden Urban House For Sell",
     location: "789 Lane, Miami, USA",
     facility: {
       size: 120,
@@ -110,7 +110,7 @@ export const propertys = [
   {
     img: "img/property-4.jpg",
     price: 45678,
-    title: "Elegant Beachfront Condo",
+    title: "Golden Urban House For Sell",
     location: "101 Ocean Drive, Los Angeles, USA",
     facility: {
       size: 90,
@@ -121,7 +121,7 @@ export const propertys = [
   {
     img: "img/property-5.jpg",
     price: 56789,
-    title: "Charming Cottage by the Lake",
+    title: "Golden Urban House For Sell",
     location: "202 Lakeview Road, Chicago, USA",
     facility: {
       size: 75,
@@ -132,7 +132,7 @@ export const propertys = [
   {
     img: "img/property-6.jpg",
     price: 67890,
-    title: "Spacious Penthouse in the City Center",
+    title: "Golden Urban House For Sell",
     location: "303 High Street, Boston, USA",
     facility: {
       size: 150,
@@ -142,3 +142,18 @@ export const propertys = [
   }
 ];
 
+
+export const team =[
+  {name:"Full Name",img:"img/team-1.jpg",role:"Designation"},
+  {name:"Full Name",img:"img/team-2.jpg",role:"Designation"},
+  {name:"Full Name",img:"img/team-3.jpg",role:"Designation"},
+  {name:"Full Name",img:"img/team-4.jpg",role:"Designation"}
+]
+
+// slider
+export const slider =[
+  {text:"Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos",img:"img/testimonial-1.jpg",name:"Client Name",role:"Profession"},
+  {text:"Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos",img:"img/testimonial-2.jpg",name:"Client Name",role:"Profession"},
+  {text:"Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos",img:"img/testimonial-3.jpg",name:"Client Name",role:"Profession"}
+]
+// footer
